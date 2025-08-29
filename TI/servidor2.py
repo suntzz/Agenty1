@@ -17,7 +17,6 @@ print(f"Clave de encriptación: {llave.decode()}")
 clientes = []
 
 def broadcast(mensaje, sender=None):
-    """Enviar mensaje a todos los clientes excepto al sender"""
     for cliente in clientes:
         if cliente != sender:
             try:
