@@ -37,7 +37,7 @@ try:
     while True:
         for cliente in clientes:
             try:
-                data = cliente.recv(1024)
+                data = cliente.recv()
                 if data:
                     print(f"Mensaje encriptado: {data.decode()}")
                     

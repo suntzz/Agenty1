@@ -16,7 +16,7 @@ print("Conectado al servidor. Puedes empezar a chatear!")
 def recibir_mensajes():
     while True:
         try:
-            dato = socketC.recv(1024)
+            dato = socketC.recv()
             if dato:
                 mensaje_desencriptado = cifrar.decrypt(dato).decode()
                 print(f"\nOtro usuario: {mensaje_desencriptado}")
