@@ -2,6 +2,7 @@ import socket
 from cryptography.fernet import Fernet
 
 def broadcast(mensaje, sender=None):
+<<<<<<< HEAD
 
     llave = Fernet.generate_key()
     cifrar = Fernet(llave)
@@ -19,6 +20,8 @@ def broadcast(mensaje, sender=None):
     clientes = []
 
     """Enviar mensaje a todos los clientes excepto al sender"""
+=======
+>>>>>>> 516320a3bfaab35080dcbfb3667a035710b4c79d
     for cliente in clientes:
         if cliente != sender:
             try:
@@ -47,5 +50,20 @@ def broadcast(mensaje, sender=None):
                     pass
     finally:
         for cliente in clientes:
+<<<<<<< HEAD
             cliente.close()
         socketS.close()
+=======
+            try:
+                data = cliente.recv()
+                if data:
+                    print(f"Mensaje encriptado: {data.decode()}")
+                    
+                    broadcast(data, cliente)
+            except:
+                pass
+finally:
+    for cliente in clientes:
+        cliente.close()
+    socketS.close()
+>>>>>>> 516320a3bfaab35080dcbfb3667a035710b4c79d
